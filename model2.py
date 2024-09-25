@@ -36,15 +36,15 @@ model = tf.keras.Sequential([
     tf.keras.layers.MaxPooling2D((2,2)),
     tf.keras.layers.Conv2D(128,(3,3),activation='relu'),
     tf.keras.layers.Flatten(),
-    tf.keras.layers.Dense(1024, activation='relu'),
+    tf.keras.layers.Dense(512, activation='relu'),
     tf.keras.layers.Dense(512, activation='relu'),
     tf.keras.layers.Dense(8, activation='sigmoid')
 ])
 model.compile(optimizer='adam',
               loss='mean_absolute_error',
-              metrics=['loss'])
+              metrics=['accuracy'])
 
-model.fit(x, y, epochs=100, batch_size=24)
+model.fit(x, y, epochs=100, batch_size=16)
 new_x = []
 for file in os.listdir("test/images"):
     im = cv2.imread("test/images/" + file)
