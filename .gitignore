@@ -11,3 +11,7 @@ runs
 test
 train
 valid
+.venv
+var
+*.zip
+.idea
